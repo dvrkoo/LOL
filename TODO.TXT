@@ -3,3 +3,25 @@ PROMISE
 riguardare il codice
 Display data
 Pretty html/css
+
+
+HTML/CSS FRONTEND INTERFACE (inspired by op.gg)
+
+ - INPUT BOX
+    -Hover animation or something to make it prettier
+    -Make the text input and button even 
+        -the general idea is to make it something like opgg search box where theyre merged
+    -Search purpleish theme ideas (halfway throught)
+        -as of now a purple hover animation has been made on the click button, time for the input text
+    -Not foundamental more like future project:introduce the region select box
+    
+ - PAGE 
+    -GOAL: the general goal is to have a section bar on the top like the opgg site I'll be introducing what I'm looking forward to do
+    -SECTION BAR: here are the sections we want to put in our page
+        -CHAMPIONS: we want a champions analytics page were the user can find useful info like pickrate,banrate and winrate for each role
+        -LIVEGAME: THIS IS OPTIONAL the idea is to have a page like porofessor where you put the summoner name and it gives real time info
+        -MMR checker: we want to use whatismymmr own api to check the player mmr more at https://dev.whatismymmr.com
+        
+ 
+ 
+    
