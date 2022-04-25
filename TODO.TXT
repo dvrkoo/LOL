@@ -1,8 +1,3 @@
-DOTENV PORCODIO v
-PROMISE
-riguardare il codice
-Display data
-Pretty html/css
 
 
 HTML/CSS FRONTEND INTERFACE (inspired by op.gg)
@@ -22,6 +17,10 @@ HTML/CSS FRONTEND INTERFACE (inspired by op.gg)
         -LIVEGAME: THIS IS OPTIONAL the idea is to have a page like porofessor where you put the summoner name and it gives real time info
         -MMR checker: we want to use whatismymmr own api to check the player mmr more at https://dev.whatismymmr.com
         
- 
- 
-    
+        
+JAVASCRIPT 
+ - INPUT BOX
+     -DISPLAY the data on screen on either enter press or click on the button
+        -we need to understand how to do this
+ - PAGE 
+     -WE NEED TO UNDERSTAND HOW TO DO ALL THE ABOVE THINGS
