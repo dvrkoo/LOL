@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOL stats</title>
     <link rel="stylesheet" href="../css/index.css">
+    <style>
+        body {
+            font-family: 'Whisper', cursive;
+        }
+    </style>
 </head>
 
 <body class="body">
-    <h1>LOL stats viewer</h1>
+    <h1 style="font-size: 40px;">SoloCarry.gg</h1>
     <div>
-        <img src="../kata.gif">
+        <img src="../resources/homepage.gif">
     </div>
 
     <div>
         <input type="text" class="box" placeholder="Username" id="summonerNameInput" />
+        <select class="region">
+            <option>EUW</option>
+            <option>NA</option>
+            <option>BR</option>
+            <option>KO</option>
+        </select>
         <input type="button" class="button" id="searchButton" value="Click me!" />
+
+
     </div>
 </body>
 <script src="../js/index.js" type="module"></script>

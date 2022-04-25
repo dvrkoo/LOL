@@ -3,7 +3,6 @@ require('dotenv').config( {path : "../.env"});
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-const config = require('./config.json');
 const { response } = require('express');
 const match = require('nodemon/lib/monitor/match');
 const app = express();
@@ -54,7 +53,7 @@ app.get('/matches/:playerName/:numberOfMatches?', async (req, res) => {
     
 })
 
-app.listen(config.port, () => {
-    console.log(`Server started on port ${config.port}`);
+app.listen(process.env.port, () => {
+    console.log(`Server started on port ${process.env.port}`);
 
 });
