@@ -1,12 +1,9 @@
 html,
-
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-
-
 }
 
 .body {
@@ -15,7 +12,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .button {
@@ -32,7 +28,6 @@ body {
     transition: ease-out 0.3s;
     font-size: 1.1rem;
     outline: none;
-
 }
 
 .button:hover {
@@ -48,7 +43,6 @@ body {
     border: none;
     outline: none;
     padding: 0 50px;
-
 }
 
 .region {

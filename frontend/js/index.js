@@ -1,52 +1,22 @@
-const BASEURL = "http://localhost:4000"
-
-const getMatches = async(matchNumber = 1) => {
-    const name = document.getElementById("summonerNameInput").value;
-    const matches = await (await fetch(`${BASEURL}/matches/${name}/${matchNumber}`)).json()
-    console.log(matches)
-    return matches
-}
-
 const handleSearchMatches = () => {
     const searchButton = document.getElementById("searchButton")
     const summonerInput = document.getElementById("summonerNameInput")
-    searchButton.addEventListener("click", () => getAndDisplayMatches())
+    searchButton.addEventListener("click", () => openProfileDetailsPage())
     summonerInput.addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
-
-            getAndDisplayMatches()
+            openProfileDetailsPage()
         }
     })
 }
-const getAndDisplayMatches = async() => {
-    const matches = await getMatches()
-    displayMatches(matches.data)
 
+const openProfileDetailsPage = () => {
+    const summonerInput = document.getElementById("summonerNameInput")
+    location.href = `summonerStats.html?summonerName=${summonerInput.value}`
 }
 
-function displayMatches(matches) {
-    console.log(matches)
-        // Loop to access all rows
-    const matchesTabs = matches.map((match) => {
-        const matchTab = document.createElement("div")
-        const players = document.createElement("div")
-            //
-        const playerTabs = match.info.participants.map((player) => {
-            const playerTab = document.createElement("div")
-            const playerName = document.createElement("div")
-            playerName.innerText = player.summonerName
-            playerTab.append(playerName)
-            return playerTab
-        })
-        players.append(...playerTabs)
-        matchTab.append(players)
-        return matchTab.innerHTML
-    })
 
-    // Setting innerHTML as tab variable
-    document.getElementById("games").innerHTML = matchesTabs
+// Setting innerHTML as tab variable
 
-}
 window.onload = () => {
     handleSearchMatches();
 }
