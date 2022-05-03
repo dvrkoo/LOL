@@ -11,4 +11,6 @@ node_modules
 .env
 
 # Ignore resources files
-/resources
+resources/
+
+
