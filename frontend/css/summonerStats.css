@@ -1,136 +1,147 @@
-#playerInfo {
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #1B3341;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
-
-#playerRankedInfo {
-    background-color: #1B3341;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
-
-#playerInfo {
-    justify-content: center;
-    display: flex;
-}
-
-#playerInfo div {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #152935;
-}
-
-.ranks {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-h2 {
-    font-weight: 400;
-    color: white;
-}
-
-h3 {
-    color: white;
-}
-
-a {
-    color: white;
-}
-
-.matchInfo div {
-    color: white;
-}
-
-.score div {
-    color: white;
-}
-
-#games {}
-
-.test {
-    padding: 5px;
-    margin-bottom: 5px;
-    display: grid;
-    grid-template-columns: 230px 400px 160px 150px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    background-color: #1B3341;
-}
-
-#playerTab {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.matchInfo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.playerImage img {
-    height: 60px;
-    width: 60px;
-    background-color: white;
-    border-radius: 50%;
-    padding: 10px;
-}
-
-.kda {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.tabPlayer {
-    display: flex;
-    align-items: center;
-}
-
-.score {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.tabPlayer img {
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-
-.leftPlayers {
-    padding: 10px;
-}
-
-.leftPlayers a {
-    padding: 3px;
-}
-
-.rightPlayers {
-    padding: 10px;
-}
-
-.rightPlayers a {
-    padding: 3px;
-}
-
-h1 {
-    display: flex;
-    justify-content: center;
-    color: white;
-}
+    #playerInfo {
+        padding: 20px;
+        margin-right: 40px;
+        width: 30%;
+        background-color: #1B3341;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+    
+    .player {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #playerRankedInfo {
+        width: 50%;
+        background-color: #1B3341;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+    
+    p {
+        color: white;
+    }
+    
+    #playerInfo {
+        justify-content: center;
+        display: flex;
+    }
+    
+    #playerInfo div {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #152935;
+    }
+    
+    .ranks {
+        grid-template-columns: 230px 230px;
+        display: grid;
+        justify-content: space-evenly;
+    }
+    
+    h2 {
+        font-weight: 400;
+        color: white;
+    }
+    
+    h3 {
+        color: white;
+    }
+    
+    a {
+        color: white;
+    }
+    
+    .matchInfo div {
+        color: white;
+    }
+    
+    .score div {
+        color: white;
+    }
+    
+    #games {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .test {
+        padding: 5px;
+        margin-bottom: 5px;
+        display: grid;
+        grid-template-columns: 230px 400px 160px 150px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        background-color: #1B3341;
+    }
+    
+    .matchInfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .playerImage img {
+        height: 60px;
+        width: 60px;
+        background-color: white;
+        border-radius: 50%;
+        padding: 10px;
+    }
+    
+    .kda {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .tabPlayer {
+        display: flex;
+        align-items: center;
+    }
+    
+    .score {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .tabPlayer img {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    
+    .leftPlayers {
+        padding: 10px;
+    }
+    
+    .leftPlayers a {
+        padding: 3px;
+    }
+    
+    .rightPlayers {
+        padding: 10px;
+    }
+    
+    .rightPlayers a {
+        padding: 3px;
+    }
+    
+    h1 {
+        display: flex;
+        justify-content: center;
+        color: white;
+    }

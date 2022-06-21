@@ -1,16 +1,16 @@
 const BASEURL = "http://localhost:4000"
 
 
-const getMatches = async(matchNumber = 2) => {
+const getMatches = async(matchNumber = 3) => {
     const name = new URL(location.href).searchParams.get("summonerName");
-    const matches = await (await fetch(`${BASEURL}/matches/${name}/${matchNumber}`)).json()
+    const matches = await (await fetch(`${BASEURL}/matches/${encodeURI(name)}/${matchNumber}`)).json()
     console.log(matches)
-
     return matches
 }
 
 const getIcon = async() => {
     const name = new URL(location.href).searchParams.get("summonerName");
+
     const icon = await (await fetch(`${BASEURL}/${name}`)).json()
     console.log(icon)
     return icon
@@ -33,7 +33,7 @@ const displayMatches = (matches, info) => {
         const playerChampImage = createPlayerChampImage()
         const playerStats = document.createElement("div")
         const playerInfo = createPlayerInfo()
-        getMatchInfo(match, matchInfo, matchTab)
+
         matchTab.append(playerScore)
             //loop throught players
         const playerTabs = match.info.participants.map((player) => {
@@ -43,7 +43,8 @@ const displayMatches = (matches, info) => {
             playerScore.append(playerChampImage)
             const playerName = createPlayerName(player)
             console.log(new URL(location.href).searchParams.get("summonerName"))
-            if (player.summonerName.toLowerCase() === new URL(location.href).searchParams.get("summonerName").toLowerCase()) {
+            if (player.summonerName.toLowerCase() == new URL(location.href).searchParams.get("summonerName").toLowerCase()) {
+                getMatchInfo(match, matchInfo, matchTab, player)
                 playerChampImage.append(champImage.cloneNode())
                 playerStats.append(player.kills + "/")
                 playerStats.append(player.deaths + "/")
@@ -86,14 +87,14 @@ const getAndDisplayProfile = (info) => {
     const playerName = document.getElementById("playerName")
     playerName.innerText = new URL(location.href).searchParams.get("summonerName")
     const playerIcon = document.getElementById("playerIconimg")
-    playerIcon.setAttribute("src", `https://ddragon.leagueoflegends.com/cdn/12.10.1/img/profileicon/${info[0]}.png`)
+    playerIcon.setAttribute("src", `https://ddragon.leagueoflegends.com/cdn/12.11.1/img/profileicon/${info[0]}.png`)
     playerIcon.setAttribute("height", "100px")
     playerIcon.setAttribute("width", "100px")
     const playerLevel = document.getElementById("playerLevel")
     playerLevel.innerText = "level " + info[2]
 }
 
-const getMatchInfo = (match, matchInfo, matchTab) => {
+const getMatchInfo = (match, matchInfo, matchTab, player) => {
     const gameID = document.createElement("div")
     const gameCreation = match.info.gameEndTimestamp
     const date = new Date(gameCreation)
@@ -105,18 +106,18 @@ const getMatchInfo = (match, matchInfo, matchTab) => {
     const humanDateFormat = date.toLocaleString()
     const finalDate = document.createElement("div")
     finalDate.append(humanDateFormat)
+    match.info.queueId == "400" && gameID.append("Normal Game")
     match.info.queueId == "420" && gameID.append("Ranked Solo")
     match.info.queueId == "440" && gameID.append("Flex 5:5 Rank")
     const win = document.createElement("div")
     matchInfo.append(gameID)
     matchInfo.append(finalDate)
     matchInfo.append(displayDuration)
-    win == "true" && matchInfo.append("victory")
+    console.log(player.win)
+    win.append(player.win === true ? "Victory" : "Defeat")
+    console.log(win.innerText)
     matchTab.append(matchInfo)
-    const gameWin = document.createElement("div")
-    win.innerHTML === "true" && gameWin.append("Victory")
-    win === "false" && gameWin.append("Defeat")
-    matchInfo.append(gameWin)
+    matchInfo.append(win)
 }
 
 const createPlayerTab = () => {
@@ -169,7 +170,11 @@ const createPlayerInfo = () => {
 
 const createChampImage = (player) => {
     const champImage = document.createElement("img")
-    champImage.setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/12.8.1/img/champion/${player.championName}.png`)
+    if (player.championName == "FiddleSticks") {
+        player.championName = "Fiddlesticks"
+    }
+    champImage.setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/${player.championName}.png`)
+
     champImage.setAttribute("width", "20")
     champImage.setAttribute("height", "20")
     return champImage
@@ -190,6 +195,17 @@ const getAndDisplayRank = (info) => {
         const winrate = document.getElementById(queue.queueType == "RANKED_FLEX_SR" ? "winrateFlex" : "winrateSolo")
         const wr = queue.wins / (queue.wins + queue.losses) * 100
         winrate.innerText = "winrate : " + wr.toFixed(2) + "%"
+        if (rankedInfoSolo.innerText == "") {
+            rankedInfoSolo.innerText = "UNRANKED"
+            const playerRankSolo = document.getElementById("playerRankSolo")
+            playerRankSolo.setAttribute("src", "../resources/ranked-emblems/Emblem_unranked.png")
+            playerRankSolo.setAttribute("height", "100px")
+        } else if (rankedInfoFlex.innerText == "") {
+            rankedInfoFlex.innerText = "UNRANKED"
+            const playerRankFlex = document.getElementById("playerRankFlex")
+            playerRankFlex.setAttribute("src", "../resources/ranked-emblems/Emblem_unranked.png")
+            playerRankFlex.setAttribute("height", "100px")
+        }
     })
 
 }

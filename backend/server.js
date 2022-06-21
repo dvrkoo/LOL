@@ -56,9 +56,10 @@ const getMatchDetailsFromMatchId = async(matchId) => {
 // Requests
 app.get('/:playerName?', async(req, res) => {
     try {
-        const icon = await getIcon(req.params.playerName)
-        const level = await getLevel(req.params.playerName)
-        const playerID = await getID(req.params.playerName)
+        const name = encodeURI(req.params.playerName)
+        const icon = await getIcon(name)
+        const level = await getLevel(name)
+        const playerID = await getID(name)
         const playerStats = await getStatsFromID(playerID)
         const array = []
         array.push(icon)
@@ -79,7 +80,8 @@ app.get('/:playerName?', async(req, res) => {
 app.get('/matches/:playerName/:numberOfMatches?', async(req, res) => {
     const numberOfMatches = req.params.numberOfMatches ? req.params.numberOfMatches : 1
     try {
-        const PUUID = await getPUUID(req.params.playerName)
+        const name = encodeURI(req.params.playerName)
+        const PUUID = await getPUUID(name)
         const matchesIds = await getMatchesIdsFromPUUID(PUUID, numberOfMatches)
         const matches = []
         for (const matchId of matchesIds) {
