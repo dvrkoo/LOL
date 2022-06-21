@@ -1,9 +1,77 @@
+#playerInfo {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #1B3341;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+#playerRankedInfo {
+    background-color: #1B3341;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+#playerInfo {
+    justify-content: center;
+    display: flex;
+}
+
+#playerInfo div {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #152935;
+}
+
+.ranks {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2 {
+    font-weight: 400;
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+.matchInfo div {
+    color: white;
+}
+
+.score div {
+    color: white;
+}
+
+#games {}
+
 .test {
+    padding: 5px;
+    margin-bottom: 5px;
     display: grid;
     grid-template-columns: 230px 400px 160px 150px;
-    border: solid 1px;
-    border-radius: 20;
-    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    background-color: #1B3341;
+}
+
+#playerTab {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .matchInfo {
@@ -49,10 +117,20 @@
     padding: 10px;
 }
 
+.leftPlayers a {
+    padding: 3px;
+}
+
 .rightPlayers {
     padding: 10px;
 }
 
+.rightPlayers a {
+    padding: 3px;
+}
+
 h1 {
-    color: green;
+    display: flex;
+    justify-content: center;
+    color: white;
 }

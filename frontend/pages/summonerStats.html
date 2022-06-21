@@ -3,16 +3,65 @@
 
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/summonerStats.css">
     <title>Document</title>
 </head>
-<h1>Games</h1>
-<!-- table for showing data -->
-<div id="games" class=""></div>
 
+<body>
+
+
+
+    <div id="playerTab">
+        <div id="playerInfo">
+            <div>
+                <h2 id="playerName"></h2>
+                <img id="playerIconimg" alt="">
+                <h2 id="playerLevel"></h2>
+            </div>
+        </div>
+
+        <div id="playerRankedInfo">
+            <div class="ranks">
+                <div>
+                    <h2>Ranked Solo</h2>
+                    <div>
+                        <img id="playerRankSolo">
+                        <h2 id="rankedInfoSolo"></h2>
+                    </div>
+                    <div>
+                        <h3 id="winsSolo"></h3>
+                        <h3 id="lossSolo"></h3>
+                        <h3 id="winrateSolo"></h3>
+                    </div>
+                </div>
+                <div>
+                    <h2>Ranked Flex</h2>
+                    <div>
+                        <img id="playerRankFlex">
+                        <h2 id="rankedInfoFlex"></h2>
+                    </div>
+                    <div>
+                        <h3 id="winsFlex"></h3>
+                        <h3 id="lossFlex"></h3>
+                        <h3 id="winrateFlex"></h3>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <h1>Games</h1>
+        <!-- table for showing data -->
+        <div id="games" class=""></div>
+</body>
 <script src="../js/summonerStats.js" type="module"></script>
 
 </html>
