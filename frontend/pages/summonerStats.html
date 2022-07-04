@@ -5,6 +5,9 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +18,25 @@
 
 <body>
 
+    <div class="navbar">
 
+        <div class="options">
+            <a class="navbarItem" href="#">Players</a>
+            <a class="navbarItem" href="#">Players Comparison</a>
+        </div>
+
+        <h1 class="navbarLogo" href="index.html" style="font-size: 40px;"><a href="index.html">SC.gg</a></h1>
+        <div class="searchBox">
+            <input type="text" class="box" placeholder="Username" id="summonerNameInput" />
+            <select class="region">
+            <option>EUW</option>
+            <option>NA</option>
+            <option>BR</option>
+            <option>KO</option>
+        </select>
+            <input type="button" class="button" id="searchButton" value="Click me!" />
+        </div>
+    </div>
 
     <div id="playerTab">
         <div class="player">
@@ -52,18 +73,35 @@
                             <h3 id="lossFlex"></h3>
                             <h3 id="winrateFlex"></h3>
                         </div>
-
-
                     </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class=" winrateGames">
+            <div id="championWinrate">
+
+                <div id="winrateForEachChamp">
+                    <h1>Champion Winrate</h1>
 
                 </div>
+            </div>
 
+            <!-- table for showing data -->
+            <div id="games" class="">
+                <h1>Games</h1>
             </div>
         </div>
-        <h1>Games</h1>
-        <!-- table for showing data -->
-        <div id="games" class=""></div>
 </body>
+<footer>
+    <h2>About Us</h2>
+    <div class="footerItems">
+        <a href="#">Contact Us</a>
+        <a href="#">Donate</a>
+        <a href="https://github.com/dvrkoo/LOL">Github</a>
+    </div>
+</footer>
 <script src="../js/summonerStats.js" type="module"></script>
 
 </html>

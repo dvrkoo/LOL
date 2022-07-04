@@ -1,13 +1,82 @@
 html,
 body {
+    background-color: #152935;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
-.body {
-    background-color: #152935;
+.footerItems a {
+    padding: 5px;
+}
+
+.footerItems {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #1B3341;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #1B3341;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbarLogo {
+    margin-right: 1em;
+    display: inline-block
+}
+
+.options a:hover {
+    background-color: white;
+    color: black;
+}
+
+.options {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navbarItem {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+.subnav {
+    list-style-type: none;
+    display: inline;
+    flex-direction: column;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +96,7 @@ h1 {
     right: 24px;
     top: 1.4px;
     position: relative;
-    height: 50px;
+    height: 52px;
     width: 6rem;
     border: none;
     color: white;
@@ -41,9 +110,11 @@ h1 {
 
 .button:hover {
     box-shadow: inset 300px 0 0 0 #1B3341;
+    cursor: pointer;
 }
 
 .box {
+    bottom: 0.5px;
     border-radius: 4px 0 0 4px;
     position: relative;
     display: inline-flex;

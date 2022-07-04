@@ -61,12 +61,14 @@ app.get('/:playerName?', async(req, res) => {
         const level = await getLevel(name)
         const playerID = await getID(name)
         const playerStats = await getStatsFromID(playerID)
-        const array = []
-        array.push(icon)
-        array.push(playerStats)
-        array.push(level)
+        const container = {
+            iconID: icon,
+            stats: playerStats,
+            level: level,
+        }
 
-        res.json({ status: 200, data: array })
+
+        res.json({ status: 200, data: container })
     } catch {
         const response = {
             status: 400,

@@ -1,7 +1,23 @@
 const BASEURL = "http://localhost:4000"
 
+let champData = new Object();
+const handleSearchMatches = () => {
+    const searchButton = document.getElementById("searchButton")
+    const summonerInput = document.getElementById("summonerNameInput")
+    searchButton.addEventListener("click", () => openProfileDetailsPage())
+    summonerInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            openProfileDetailsPage()
+        }
+    })
+}
 
-const getMatches = async(matchNumber = 3) => {
+const openProfileDetailsPage = () => {
+    const summonerInput = document.getElementById("summonerNameInput")
+    location.href = `summonerStats.html?summonerName=${summonerInput.value}`
+}
+
+const getMatches = async(matchNumber = 10) => {
     const name = new URL(location.href).searchParams.get("summonerName");
     const matches = await (await fetch(`${BASEURL}/matches/${encodeURI(name)}/${matchNumber}`)).json()
     console.log(matches)
@@ -21,37 +37,30 @@ const displayMatches = (matches, info) => {
     //display infos that don't neet loop
     getAndDisplayProfile(info);
     getAndDisplayRank(info);
+
     // Loop to access all rows
     const matchesTabs = matches.map((match) => {
-        console.log(match);
         // creating Matchtab
-        const matchTab = createMatchTab()
-        const playersLeft = createPlayersLeft()
-        const playersRight = createPlayersRight()
-        const playerScore = createPlayerScore()
-        const matchInfo = createMatchInfo()
-        const playerChampImage = createPlayerChampImage()
+        const matchTab = createTab("matchTab")
+        const playersLeft = createTab("playersLeft")
+        const playersRight = createTab("playersRight")
+        const playerScore = createTab("playerScore")
+        const matchInfo = createTab("matchInfo")
+        const playerChampImage = createTab("playerChampImage")
         const playerStats = document.createElement("div")
-        const playerInfo = createPlayerInfo()
-
+        const playerInfo = createTab("playerInfo")
         matchTab.append(playerScore)
             //loop throught players
         const playerTabs = match.info.participants.map((player) => {
-            const playerTab = createPlayerTab()
+            const playerTab = createTab("playerTab")
             const champImage = createChampImage(player)
             const kda = document.createElement("span")
             playerScore.append(playerChampImage)
             const playerName = createPlayerName(player)
-            console.log(new URL(location.href).searchParams.get("summonerName"))
             if (player.summonerName.toLowerCase() == new URL(location.href).searchParams.get("summonerName").toLowerCase()) {
+                getPlayerStats(playerChampImage, playerStats, kda, playerInfo, champImage, player)
                 getMatchInfo(match, matchInfo, matchTab, player)
-                playerChampImage.append(champImage.cloneNode())
-                playerStats.append(player.kills + "/")
-                playerStats.append(player.deaths + "/")
-                playerStats.append(player.assists)
-                kda.append("KDA: " + ((player.kills + player.assists) / player.deaths).toFixed(2))
-                playerInfo.append(player.totalMinionsKilled + "CS")
-                playerInfo.append(" Wards:" + player.visionScore)
+                champData = createChampArray(player, champData)
             }
             playerScore.append(playerStats)
             playerScore.append(playerInfo)
@@ -68,30 +77,88 @@ const displayMatches = (matches, info) => {
         playersRight.append(...playerTabRight)
         matchTab.append(playersLeft)
         matchTab.append(playersRight)
-
         return matchTab
-        console.log(matchTab)
+
 
     })
     document.getElementById("games").append(...matchesTabs)
+    displayChampWinrate(champData)
+
+
+}
+
+const createChampArray = (player, champData) => {
+    const champName = player.championName
+    const champWin = player.win
+    if (champName in champData) {
+        champWin === true ? champData[champName].winrate.win += 1 : champData[champName].winrate.loss += 1
+    } else {
+        let winrate = {
+            win: 0,
+            loss: 0,
+        }
+        champWin === true ? winrate.win = 1 : winrate.loss = 1
+        champData[champName] = {
+            winrate
+        }
+    }
+    return champData
+}
+const displayChampWinrate = (champData) => {
+    for (let champ of Object.keys(champData)) {
+        const champName = document.createElement("p")
+        champName.innerText = champ
+        const winrateForEachChamp = document.getElementById("winrateForEachChamp")
+        const champTab = document.createElement("div")
+        champTab.setAttribute("class", "singleChampWrTab")
+        const champStats = document.createElement("div")
+        champStats.setAttribute("class", "champStats")
+        const champTabImage = document.createElement("img")
+        champTabImage.setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/${champ}.png`)
+        champTabImage.setAttribute("height", "50px")
+        const champTabWin = document.createElement("p")
+        champTabWin.append(champData[champ].winrate.win + "W")
+        const champTabLoss = document.createElement("p")
+        champTabLoss.append(champData[champ].winrate.loss + "L")
+        const champTabWinrate = document.createElement("p")
+        const wr = ((champData[champ].winrate.win) / (champData[champ].winrate.win + champData[champ].winrate.loss) * 100).toFixed(2)
+        champTabWinrate.append(wr + "% WR")
+        champTab.append(champTabImage)
+        champTab.append(champName)
+        champStats.append(champTabWin)
+        champStats.append(champTabLoss)
+        champStats.append(champTabWinrate)
+        champTab.append(champStats)
+        winrateForEachChamp.append(champTab)
+    }
 }
 
 const getAndDisplayMatches = async() => {
     const matches = await getMatches()
     const iconid = await getIcon()
     displayMatches(matches.data, iconid.data)
+    console.log(champData)
 
 }
+const getPlayerStats = (playerChampImage, playerStats, kda, playerInfo, champImage, player) => {
+    playerChampImage.append(champImage.cloneNode())
+    playerStats.append(player.kills + "/")
+    playerStats.append(player.deaths + "/")
+    playerStats.append(player.assists)
+    kda.append("KDA: " + ((player.kills + player.assists) / player.deaths).toFixed(2))
+    playerInfo.append(player.totalMinionsKilled + "CS")
+    playerInfo.append(" Wards:" + player.visionScore)
 
+}
 const getAndDisplayProfile = (info) => {
     const playerName = document.getElementById("playerName")
     playerName.innerText = new URL(location.href).searchParams.get("summonerName")
     const playerIcon = document.getElementById("playerIconimg")
-    playerIcon.setAttribute("src", `https://ddragon.leagueoflegends.com/cdn/12.11.1/img/profileicon/${info[0]}.png`)
+    playerIcon.setAttribute("src", `https://ddragon.leagueoflegends.com/cdn/12.11.1/img/profileicon/${info.iconID}.png`)
     playerIcon.setAttribute("height", "100px")
     playerIcon.setAttribute("width", "100px")
     const playerLevel = document.getElementById("playerLevel")
-    playerLevel.innerText = "level " + info[2]
+    playerLevel.innerText = "level " + info.level
 }
 
 const getMatchInfo = (match, matchInfo, matchTab, player) => {
@@ -110,62 +177,26 @@ const getMatchInfo = (match, matchInfo, matchTab, player) => {
     match.info.queueId == "420" && gameID.append("Ranked Solo")
     match.info.queueId == "440" && gameID.append("Flex 5:5 Rank")
     const win = document.createElement("div")
+    win.setAttribute("id", "win")
     matchInfo.append(gameID)
     matchInfo.append(finalDate)
     matchInfo.append(displayDuration)
-    console.log(player.win)
     win.append(player.win === true ? "Victory" : "Defeat")
-    console.log(win.innerText)
     matchTab.append(matchInfo)
     matchInfo.append(win)
 }
 
-const createPlayerTab = () => {
-    const playerTab = document.createElement("div")
-    playerTab.setAttribute("class", "tabPlayer")
-    return playerTab
+const createTab = (className) => {
+    const tab = document.createElement("div")
+    tab.setAttribute("class", className)
+    return tab
 }
+
 const createPlayerName = (player) => {
     const playerName = document.createElement("a")
     playerName.innerText = player.summonerName
     playerName.setAttribute("href", `summonerStats.html?summonerName=${playerName.innerText}`)
     return playerName
-}
-
-const createMatchTab = () => {
-    const matchTab = document.createElement("div")
-    matchTab.setAttribute("class", "test")
-    return matchTab
-}
-const createPlayersLeft = () => {
-    const playersLeft = document.createElement("div")
-    playersLeft.setAttribute("class", "leftPlayers")
-    return playersLeft
-}
-const createPlayersRight = () => {
-    const playersRight = document.createElement("div")
-    playersRight.setAttribute("class", "rightPlayers")
-    return playersRight
-}
-const createPlayerScore = () => {
-    const playerScore = document.createElement("div")
-    playerScore.setAttribute("class", "score")
-    return playerScore
-}
-const createMatchInfo = () => {
-    const matchInfo = document.createElement("div")
-    matchInfo.setAttribute("class", "matchInfo")
-    return matchInfo
-}
-const createPlayerChampImage = () => {
-    const playerChampImage = document.createElement("div")
-    playerChampImage.setAttribute("class", "playerImage")
-    return playerChampImage
-}
-const createPlayerInfo = () => {
-    const playerInfo = document.createElement("div")
-    playerInfo.setAttribute("class", "kda")
-    return playerInfo
 }
 
 const createChampImage = (player) => {
@@ -181,8 +212,7 @@ const createChampImage = (player) => {
 }
 
 const getAndDisplayRank = (info) => {
-    const rankTab = info[1].map((queue) => {
-        console.log(queue)
+    const rankTab = info.stats.map((queue) => {
         const playerRank = document.getElementById(queue.queueType == "RANKED_FLEX_SR" ? "playerRankFlex" : "playerRankSolo")
         playerRank.setAttribute("src", `../resources/ranked-emblems/Emblem_${queue.tier}.png`)
         playerRank.setAttribute("height", "100px")
@@ -215,4 +245,5 @@ const createRank = () => {
 }
 window.onload = () => {
     getAndDisplayMatches()
+    handleSearchMatches()
 }

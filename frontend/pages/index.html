@@ -10,6 +10,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
     <title>LOL stats</title>
     <link rel="stylesheet" href="../css/index.css">
@@ -18,26 +21,47 @@
             font-family: 'Whisper', cursive;
         }
     </style>
+
 </head>
 
-<body class="body">
-    <h1 style="font-size: 40px;">SoloCarry.gg</h1>
-    <div>
-        <img src="../resources/homepage.gif">
-    </div>
+<body>
+    <div class="navbar">
+        <div class="options">
+            <a class="navbarItem" href="#">Players</a>
+            <a class="navbarItem" href="#">Players Comparison</a>
+        </div>
 
-    <div class="searchBox">
-        <input type="text" class="box" placeholder="Username" id="summonerNameInput" />
-        <select class="region">
+        <h1 class="navbarLogo" style="font-size: 40px;">SC.gg</h1>
+    </div>
+    <div class="container">
+        <h1 style="font-size: 40px;">SoloCarry.gg</h1>
+        <div>
+            <img src="../resources/homepage.gif">
+        </div>
+
+        <div class="searchBox">
+            <input type="text" class="box" placeholder="Username" id="summonerNameInput" />
+            <select class="region">
             <option>EUW</option>
             <option>NA</option>
             <option>BR</option>
             <option>KO</option>
         </select>
-        <input type="button" class="button" id="searchButton" value="Click me!" />
-
-
+            <input type="button" class="button" id="searchButton" value="Click me!" />
+        </div>
     </div>
+    <p>What is SoloCarry? Solo carry is a site to check players match history and Statistics on the popular game League of legends</p>
+    <p>how does it work? it’s simple, you just type the name of the player whom stats you want to check and you click on the button</p>
+    <p>Why us ? We’re a compleyelu opensource project always ready to bring new content to the table</p>
+    <p>What are your future plans? We will surely bring a desktop application and we will be working on getting more match stats to bring champion winrates across patch and across different ranks</p>
+    <footer>
+        <h2>About Us</h2>
+        <div class="footerItems">
+            <a href="#">Contact Us</a>
+            <a href="#">Donate</a>
+            <a href="https://github.com/dvrkoo/LOL">Github</a>
+        </div>
+    </footer>
 
 </body>
 <script src="../js/index.js" type="module"></script>

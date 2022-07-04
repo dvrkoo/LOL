@@ -1,147 +1,282 @@
-    #playerInfo {
-        padding: 20px;
-        margin-right: 40px;
-        width: 30%;
-        background-color: #1B3341;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    }
-    
-    .player {
-        justify-content: center;
-        display: flex;
-        flex-direction: row;
-    }
-    
-    #playerRankedInfo {
-        width: 50%;
-        background-color: #1B3341;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    }
-    
-    p {
-        color: white;
-    }
-    
-    #playerInfo {
-        justify-content: center;
-        display: flex;
-    }
-    
-    #playerInfo div {
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    a {
-        text-decoration: none;
-        color: black;
-    }
-    
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #152935;
-    }
-    
-    .ranks {
-        grid-template-columns: 230px 230px;
-        display: grid;
-        justify-content: space-evenly;
-    }
-    
-    h2 {
-        font-weight: 400;
-        color: white;
-    }
-    
-    h3 {
-        color: white;
-    }
-    
-    a {
-        color: white;
-    }
-    
-    .matchInfo div {
-        color: white;
-    }
-    
-    .score div {
-        color: white;
-    }
-    
-    #games {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .test {
-        padding: 5px;
-        margin-bottom: 5px;
-        display: grid;
-        grid-template-columns: 230px 400px 160px 150px;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-        background-color: #1B3341;
-    }
-    
-    .matchInfo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    
-    .playerImage img {
-        height: 60px;
-        width: 60px;
-        background-color: white;
-        border-radius: 50%;
-        padding: 10px;
-    }
-    
-    .kda {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    
-    .tabPlayer {
-        display: flex;
-        align-items: center;
-    }
-    
-    .score {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    
-    .tabPlayer img {
-        flex-grow: 0;
-        flex-shrink: 0;
-    }
-    
-    .leftPlayers {
-        padding: 10px;
-    }
-    
-    .leftPlayers a {
-        padding: 3px;
-    }
-    
-    .rightPlayers {
-        padding: 10px;
-    }
-    
-    .rightPlayers a {
-        padding: 3px;
-    }
-    
-    h1 {
-        display: flex;
-        justify-content: center;
-        color: white;
-    }
+.champStats {
+    display: flex;
+    flex-direction: row;
+}
+
+.winrateGames {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.singleChampWrTab img {
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.singleChampWrTab {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #1B3341;
+}
+
+.searchBox {
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.button {
+    right: 24px;
+    top: 1.4px;
+    height: 52px;
+    width: 6rem;
+    border: none;
+    color: white;
+    background-color: #030f16;
+    border-radius: 0 4px 4px 0;
+    box-shadow: inset 0 0 0 0 #1B3341;
+    transition: ease-out 0.3s;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.button:hover {
+    box-shadow: inset 300px 0 0 0 #1B3341;
+    cursor: pointer;
+}
+
+.box {
+    bottom: 0.5px;
+    border-radius: 4px 0 0 4px;
+    height: 50px;
+    width: 10rem;
+    border: none;
+    outline: none;
+    padding: 0 50px;
+}
+
+.region {
+    appearance: none;
+    right: 5px;
+    height: 50px;
+    width: 6rem;
+    padding: 0 25px;
+    border: none;
+    outline: none;
+    padding: 11px 16px;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+.navbar {
+    top: 0;
+    margin-bottom: 20px;
+    background-color: #1B3341;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbarLogo {
+    display: inline-block;
+    font-family: 'Whisper', cursive;
+}
+
+.option:active {
+    background-color: white;
+    color: black;
+}
+
+.options a:hover {
+    background-color: white;
+    color: black;
+}
+
+.options {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footerItems a {
+    padding: 5px;
+}
+
+.footerItems {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #1B3341;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#playerInfo {
+    padding: 20px;
+    margin-right: 40px;
+    width: 30%;
+    background-color: #1B3341;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.player {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#playerRankedInfo {
+    width: 50%;
+    background-color: #1B3341;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+p {
+    color: white;
+}
+
+#playerInfo {
+    justify-content: center;
+    display: flex;
+}
+
+#playerInfo div {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbarItem {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #152935;
+}
+
+.ranks {
+    grid-template-columns: 230px 230px;
+    display: grid;
+    justify-content: space-evenly;
+}
+
+h2 {
+    font-weight: 400;
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+.matchInfo div {
+    color: white;
+}
+
+.playerScore div {
+    color: white;
+}
+
+#games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.matchTab {
+    padding: 5px;
+    margin-bottom: 5px;
+    display: grid;
+    grid-template-columns: 230px 200px 170px 170px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    background-color: #1B3341;
+}
+
+.matchInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.playerChampImage img {
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.playerInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.playerTab {
+    display: flex;
+    align-items: center;
+}
+
+.playerScore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.playerTab img {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.playersLeft {
+    padding: 10px;
+}
+
+.playersLeft a {
+    padding: 3px;
+}
+
+.playersRight {
+    padding: 10px;
+}
+
+.playersRight a {
+    padding: 3px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
