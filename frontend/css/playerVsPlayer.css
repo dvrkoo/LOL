@@ -1,3 +1,9 @@
+.playerRankedContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .champStats {
     display: flex;
     flex-direction: row;
@@ -131,14 +137,20 @@ p {
 }
 
 footer {
+    position: absolute;
     background-color: #1B3341;
-    bottom: 0;
     width: 100%;
     text-align: center;
     padding-bottom: 10px;
 }
 
+#playerInfo div {
+    padding: 20px;
+    align-items: center;
+}
+
 #playerInfo {
+    align-items: center;
     padding: 20px;
     margin-right: 40px;
     width: 30%;
@@ -147,13 +159,15 @@ footer {
 }
 
 .player {
+    margin: 40px;
     justify-content: center;
+    align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-#playerRankedInfo {
-    width: 50%;
+.playerRankedInfo {
+    width: 40%;
     background-color: #1B3341;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
@@ -186,6 +200,7 @@ a {
 }
 
 body {
+    height: 100%;
     margin: 0px;
     font-family: 'Roboto', sans-serif;
     background-color: #152935;

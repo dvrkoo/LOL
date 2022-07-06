@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/playerVsPlayer.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="options">
+            <a class="navbarItem" href="#">Players</a>
+            <a class="navbarItem" href="#">Players Comparison</a>
+        </div>
+
+        <h1 class="navbarLogo" href="index.html" style="font-size: 40px;"><a href="index.html">SC.gg</a></h1>
+        <div class="searchBox">
+            <input type="text" class="box" placeholder="Username" id="summonerNameInput" />
+            <select class="region">
+            <option>EUW</option>
+            <option>NA</option>
+            <option>BR</option>
+            <option>KO</option>
+        </select>
+            <input type="button" class="button" id="searchButton" value="Click me!" />
+        </div>
+    </div>
+
+    <div id="playerTab">
+        <div class="player">
+            <div id="playerInfo">
+                <div>
+                    <h2 id="playerName"></h2>
+                    <img id="playerIconimg" alt="">
+                    <h2 id="playerLevel"></h2>
+                </div>
+                <h1>VS</h1>
+                <div>
+                    <h2 id="otherPlayerName"></h2>
+                    <img id="otherPlayerIconimg" alt="">
+                    <h2 id="otherPlayerLevel"></h2>
+                </div>
+            </div>
+            <div class="playerRankedContainer">
+                <div class="playerRankedInfo">
+                    <div class="ranks">
+                        <div>
+                            <h2>Ranked Solo</h2>
+                            <div>
+                                <img id="playerRankSolo">
+                                <h2 id="rankedInfoSolo"></h2>
+                            </div>
+                            <div>
+                                <h3 id="winsSolo"></h3>
+                                <h3 id="lossSolo"></h3>
+                                <h3 id="winrateSolo"></h3>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Ranked Flex</h2>
+                            <div>
+                                <img id="playerRankFlex">
+                                <h2 id="rankedInfoFlex"></h2>
+                            </div>
+                            <div>
+                                <h3 id="winsFlex"></h3>
+                                <h3 id="lossFlex"></h3>
+                                <h3 id="winrateFlex"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="playerRankedInfo">
+                    <div class="ranks">
+                        <div>
+                            <h2>Ranked Solo</h2>
+                            <div>
+                                <img id="otherPlayerRankSolo">
+                                <h2 id="otherRankedInfoSolo"></h2>
+                            </div>
+                            <div>
+                                <h3 id="otherWinsSolo"></h3>
+                                <h3 id="otherLossSolo"></h3>
+                                <h3 id="otherWinrateSolo"></h3>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Ranked Flex</h2>
+                            <div>
+                                <img id="otherPlayerRankFlex">
+                                <h2 id="otherRankedInfoFlex"></h2>
+                            </div>
+                            <div>
+                                <h3 id="otherWinsFlex"></h3>
+                                <h3 id="otherLossFlex"></h3>
+                                <h3 id="otherWinrateFlex"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bothWinrates">
+
+        </div>
+</body>
+<footer>
+    <h2>About Us</h2>
+    <div class="footerItems">
+        <a href="#">Contact Us</a>
+        <a href="#">Donate</a>
+        <a href="https://github.com/dvrkoo/LOL">Github</a>
+    </div>
+</footer>
+<script src="../js/playerVsPlayer.js" type="module"></script>
+
+</html>

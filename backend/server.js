@@ -54,6 +54,39 @@ const getMatchDetailsFromMatchId = async(matchId) => {
 }
 
 // Requests
+
+app.get('/:playerName&otherPlayerName?', async(req, res) => {
+    try {
+        const players = {}
+        for (names in req.params) {
+            const name = encodeURI(req.params.playerName)
+            const icon = await getIcon(name)
+            const level = await getLevel(name)
+            const playerID = await getID(name)
+            const playerStats = await getStatsFromID(playerID)
+            const container = {
+                iconID: icon,
+                stats: playerStats,
+                level: level,
+            }
+            players[name] = {
+                container
+            }
+
+        }
+
+
+
+        res.json({ status: 200, data: players })
+    } catch {
+        const response = {
+            status: 400,
+            data: {},
+        }
+        res.json(response)
+    }
+
+})
 app.get('/:playerName?', async(req, res) => {
     try {
         const name = encodeURI(req.params.playerName)

@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
     <title>LOL stats</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index2.css">
     <style>
         h1 {
             font-family: 'Whisper', cursive;
@@ -27,8 +27,8 @@
 <body>
     <div class="navbar">
         <div class="options">
-            <a class="navbarItem active" href="index.html">Players</a>
-            <a class="navbarItem" href="index2.html">Players Comparison</a>
+            <a class="navbarItem" href="index.html">Players</a>
+            <a class="navbarItem active" href="index2.html">Players Comparison</a>
         </div>
 
         <h1 class="navbarLogo" style="font-size: 40px;">SC.gg</h1>
@@ -38,17 +38,29 @@
         <div>
             <img src="../resources/homepage.gif">
         </div>
-
-        <div class="searchBox">
-            <input type="text" class="box" placeholder="Username" id="summonerNameInput" />
-            <select class="region">
+        <div class="searchButtons">
+            <div class="searchBox">
+                <input type="text" class="box" placeholder="Username" id="summonerNameInput" />
+                <select class="region">
             <option>EUW</option>
             <option>NA</option>
             <option>BR</option>
             <option>KO</option>
         </select>
-            <input type="button" class="button" id="searchButton" value="Click me!" />
+            </div>
+            <h1>VS</h1>
+            <div class="searchBox">
+                <input type="text" class="box" placeholder="Username" id="summonerNameInputTwo" />
+                <select class="region">
+            <option>EUW</option>
+            <option>NA</option>
+            <option>BR</option>
+            <option>KO</option>
+        </select>
+            </div>
+
         </div>
+        <input type="button" class="button" id="searchButton" value="Click me!" />
     </div>
     <p>What is SoloCarry? Solo carry is a site to check players match history and Statistics on the popular game League of legends</p>
     <p>how does it work? it’s simple, you just type the name of the player whom stats you want to check and you click on the button</p>
@@ -64,6 +76,6 @@
     </footer>
 
 </body>
-<script src="../js/index.js" type="module"></script>
+<script src="../js/index2.js" type="module"></script>
 
 </html>

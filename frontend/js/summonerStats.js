@@ -37,7 +37,6 @@ const displayMatches = (matches, info) => {
     //display infos that don't neet loop
     getAndDisplayProfile(info);
     getAndDisplayRank(info);
-
     // Loop to access all rows
     const matchesTabs = matches.map((match) => {
         // creating Matchtab
@@ -70,7 +69,6 @@ const displayMatches = (matches, info) => {
             return playerTab
 
         })
-
         const playerTabLeft = playerTabs.slice(0, 5)
         const playerTabRight = playerTabs.slice(5, 10)
         playersLeft.append(...playerTabLeft)
@@ -83,8 +81,6 @@ const displayMatches = (matches, info) => {
     })
     document.getElementById("games").append(...matchesTabs)
     displayChampWinrate(champData)
-
-
 }
 
 const createChampArray = (player, champData) => {
@@ -113,9 +109,12 @@ const displayChampWinrate = (champData) => {
         champTab.setAttribute("class", "singleChampWrTab")
         const champStats = document.createElement("div")
         champStats.setAttribute("class", "champStats")
-        const champTabImage = document.createElement("img")
-        champTabImage.setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/${champ}.png`)
-        champTabImage.setAttribute("height", "50px")
+        const champImage = document.createElement("img")
+        champImage.setAttribute("src", `http://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/${champ}.png`)
+        champImage.setAttribute("height", "50px")
+        const champTabImage = document.createElement("div")
+        champTabImage.setAttribute("class", "champTabImage")
+        champTabImage.append(champImage)
         const champTabWin = document.createElement("p")
         champTabWin.append(champData[champ].winrate.win + "W")
         const champTabLoss = document.createElement("p")
